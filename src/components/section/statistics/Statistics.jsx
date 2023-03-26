@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Notification from '../Notification/Notification';
 
 export default function Statistics({
@@ -31,3 +33,6 @@ export default function Statistics({
     </ul>
   );
 }
+Notification.propTypes = {
+  message: PropTypes.string,
+};

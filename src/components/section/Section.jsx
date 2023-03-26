@@ -54,6 +54,7 @@ export default function Section() {
     </div>
   );
 }
+
 FeedbackOptions.propTypes = {
   options: PropTypes.array,
   onLeaveFeedback: PropTypes.func,
