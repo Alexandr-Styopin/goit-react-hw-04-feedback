@@ -1,0 +1,7 @@
+.valueItem:not(:first-child) {
+  margin-top: 5px;
+}
+
+.value {
+  margin: 0px;
+}

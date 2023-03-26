@@ -39,11 +39,11 @@ export default function Section() {
 
   return (
     <div>
-      <h2>Statistic</h2>
       <FeedbackOptions
         options={['good', 'neutral', 'bad']}
         onLeaveFeedback={handleLeaveFeedback}
       />
+      <h2>Statistic</h2>
       <Statistics
         good={good}
         neutral={neutral}

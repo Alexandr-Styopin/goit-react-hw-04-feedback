@@ -1,10 +1,15 @@
 import React from 'react';
+import css from '../feedbackOptions/FeedbackOptions.module.css';
 export default function FeedbackOptions({ options, onLeaveFeedback }) {
   return (
-    <ul>
+    <ul className={css.btnList}>
       {options.map(option => (
-        <li key={option}>
-          <button type="button" onClick={() => onLeaveFeedback(option)}>
+        <li className={css.btnItem} key={option}>
+          <button
+            className={css.btn}
+            type="button"
+            onClick={() => onLeaveFeedback(option)}
+          >
             {option}
           </button>
         </li>

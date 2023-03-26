@@ -1,0 +1,24 @@
+.btnList {
+  display: flex;
+}
+
+.btnItem:not(:last-child) {
+  margin-right: 10px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 200px;
+  min-height: 50px;
+
+  border: 0;
+  border-radius: 4px;
+  color: #fdfdfd;
+  background-color: #7790ff;
+  cursor: pointer;
+
+  text-transform: uppercase;
+}
