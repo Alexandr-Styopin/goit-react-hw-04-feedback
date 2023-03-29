@@ -1,60 +1,30 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import FeedbackOptions from './feedbackOptions/FeedbackOptions';
 import Statistics from './statistics/Statistics';
+import PropTypes from 'prop-types';
 
-export default function Section() {
-  const [good, setGood] = useState(0);
-  const [neutral, setNeutral] = useState(0);
-  const [bad, setBad] = useState(0);
+export default function Section({
+  options,
+  onLeaveFeedback,
 
-  const handleLeaveFeedback = option => {
-    switch (option) {
-      case 'good':
-        setGood(prevGood => prevGood + 1);
-        break;
-
-      case 'neutral':
-        setNeutral(prevNeutral => prevNeutral + 1);
-        break;
-
-      case 'bad':
-        setBad(prevBad => prevBad + 1);
-        break;
-
-      default:
-        return;
-    }
-  };
-
-  const countTotalFeedback = () => {
-    return good + neutral + bad;
-  };
-
-  const countPositiveFeedbackPercentage = () => {
-    const goodFeedback = good + neutral;
-    const totalFeedback = good + neutral + bad;
-    return Math.floor((goodFeedback / totalFeedback) * 100);
-  };
-
+  good,
+  neutral,
+  bad,
+  total,
+  positivePercentage,
+}) {
   return (
-    <div>
-      <FeedbackOptions
-        options={['good', 'neutral', 'bad']}
-        onLeaveFeedback={handleLeaveFeedback}
-      />
-      <h2>Statistic</h2>
+    <>
+      <FeedbackOptions options={options} onLeaveFeedback={onLeaveFeedback} />
       <Statistics
         good={good}
         neutral={neutral}
         bad={bad}
-        total={countTotalFeedback()}
-        positivePercentage={countPositiveFeedbackPercentage()}
+        total={total}
+        positivePercentage={positivePercentage}
       />
-    </div>
+    </>
   );
 }
-
 FeedbackOptions.propTypes = {
   options: PropTypes.array,
   onLeaveFeedback: PropTypes.func,
